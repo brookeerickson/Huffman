@@ -167,7 +167,7 @@ public class HuffProcessor {
 	private void readCompressedBits(HuffNode realroot, HuffNode root, BitInputStream in, BitOutputStream out) {
 		if (root==null)return;
 		int val = root.value();
-		while (val != PSEUDO_EOF || val != -1) {
+		while (val != PSEUDO_EOF) {
 		if (root.left() == null && root.right() == null) {
 			//System.out.println("leaf");
 			out.writeBits(BITS_PER_WORD, val);
@@ -175,7 +175,8 @@ public class HuffProcessor {
 		int bit = in.readBits(1);
 		if (bit == 0) root=root.left();
 		if (bit == 1) root=root.right();
-		val = root.value();}
+		val = root.value();
+		if (bit == -1) throw new HuffException("No EOF");}
 	}
 		
 	private HuffNode readTreeHeader(BitInputStream in) {
