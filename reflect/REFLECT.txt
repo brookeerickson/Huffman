@@ -1,11 +1,50 @@
-Name: firstname lastname
-NetID: abc123
-Hours Spent: Give an exact (decimal) number here
-Consulted With: provide names or NetIDs of any students, TAs, or professors you consulted with on the assignment. If you did not consult with anyone, you must explicitly write NONE.
-Resources Used: Any books, papers, or online resources. If you did not use any outside resources, you must explicitly write NONE 
-Impressions: Your answer here
+Name: Brooke Erickson
+NetID: bce14
+Hours Spent: 7
+Consulted With: UTA's in helper hours
+Resources Used: NONE
 ----------------------------------------------------------------------
-Problem 1: Describe testing
-Problem 2: Benchmark and analyze your code
-Problem 3: Text vs. Binary 
-Problem 4: Compressing compressed files
+Problem 1: To test this assignment, I ran the HuffMain on all of the files available -
+	including regular test files, image jpg files, and image tif files. I also compared 
+	each of these in multiple ways - comparing the given hf (compressed) files to my version
+	of hf (compressed) files and comparing the given txt files to my version of the 
+	decompressed files. I also created a few of my own test files including a small 
+	file consisting of abcdefabcd which is small enough to debug and includes both repeated
+	letters and non-repeated letters. I also created the test file aaaaaaaaa which has 
+	only one letter as a special case. In addition to all of this, I added print statements 
+	throughout my code to more easily debug the individual methods.
+	
+Problem 2: Below are compression rates, times, and alphabet sizes for files in waterloo
+	File Name		% Space Saved	File Length		Time				Alphabet Size
+	barb.tif			6.24				262274			0.092			230
+	bird.tif			7.89				65666			0.027			155
+	clegg.tif		7.76				2149096			0.212			20
+	frymire.tif		27.06			3706306			0.265			185
+	peppers.tif		22.39			786568			0.093			255
+	squares.tif		21.59			65666			0.009			20
+	zelda.tif		20.97			262274			0.041			187
+	
+	Below are compression rates, times, and alphabet sizes for files in calgary
+	File Name	% Space Saved		File Length		Time				Alphabet Size
+	bib			34.5					111261			0.067			81
+	geo			40.2					102400			0.021			256
+	obj2			37.01				246814			0.033			256
+	pic			44.49				513216			0.036			159
+	progl		44.25				71646			0.011			87
+	
+	As can be seen above, in the waterloo folder the time is strongly correlated with file
+	length and the % space saved should be correlated to the alphabet size since a file with 
+	more repetition (smaller alphabet size) will be able to compress more.
+	
+Problem 3: The empirical data for this question is in problem 2. As can be seen from the data, 
+	the files from the calgary folder (text files) have significantly higher compression rates
+	(% space saved) than the files from the waterloo folder (the images). This makes sense
+	because text files likely have much more repetition  due to the fact that there are a more
+	limited number of characters/letters than colored pixels. 
+	
+Problem 4: No, it is not possible to compress a file which has already been compressed. Huffman
+	coding is not effective after a file has already been compressed because the algorithm has 
+	already run on the file and it has already combined all characters which occur multiple times.
+	Huffman coding works by creating a code for each character depending on the number of times
+	that character occurs in the file. Once this code has been created, you cannot condense 
+	characters any farther because that would require combining different characters.
